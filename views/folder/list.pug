@@ -1,0 +1,5 @@
+extends ../layout
+block content
+    each folder in folders
+        a(href=folder.id)
+            p= folder.folder_name

@@ -1,0 +1,28 @@
+doctype html 
+html 
+    head
+        block title 
+            title= pageTitle 
+        block js
+            script(src='/jquery/jquery.min.js')
+        block css
+            link(rel="stylesheet" 
+                href="/bootstrap/css/bootstrap.css" 
+                type="text/css")
+            style. 
+                .app-bg { background-color: #DDEEDD}
+
+    body.container-fluid
+        block header
+            include navbar.pug
+        .row.justify-content-center
+            .col-md-8
+        .row.justify-content-center
+            .col-md-8.p-2.app-bg
+                - const messages = getMessages()
+                if messages && messages.infos 
+                    .alert.alert-info
+                        each item in messages.infos
+                            p= item
+
+                block content

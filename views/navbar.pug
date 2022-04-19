@@ -1,0 +1,22 @@
+nav.navbar.navbar-light.bg-light.navbar-expand-lg
+    a.navbar-brand(href="/photo/list") Ma gallerie photo
+
+    button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navContent")
+        span.navbar-toggler-icon
+
+    #navContent.collapse.navbar-collapse
+        .mr-auto
+        if user
+            span.nav-text Bonjour #{user.user_name}
+        ul.navbar-nav
+            li.nav-item
+                a.nav-link(href="/photo/image") Upload image
+            li.nav-item
+                a.nav-link(href="/folder/new") New Folder
+            li.nav-item
+                a.nav-link(href="/logout") Inscription    
+
+
+
+
+

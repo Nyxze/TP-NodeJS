@@ -1,0 +1,8 @@
+extends ../layout 
+
+block content 
+    each photo in photos
+        a(href="/photo/"+photo.id)
+            img(src="/photos/"+photo.photo_name )
+        p= photo.photo_name
+        

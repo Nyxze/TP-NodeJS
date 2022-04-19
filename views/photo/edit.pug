@@ -1,0 +1,10 @@
+extends ../layout
+block append js
+    script(src='/js/EditPhoto.js')
+block content 
+    form(method="put")
+        img(src="/photos/"+result.photo_name)
+        input(name="legend")
+        select(name="folder")
+            each folder in folders
+                option=folder.folder_name
