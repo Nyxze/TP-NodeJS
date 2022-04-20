@@ -1,0 +1,3 @@
+CREATE DATABASE tp_nodejs;
+USE tp_nodejs;
+SET FOREIGN_KEY_CHECKS = 0;
