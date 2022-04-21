@@ -13,11 +13,11 @@ function NavbarTest() {
 
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand as={Link} to={"/home"}>Gallerie Photo</Navbar.Brand>
+                    <Navbar.Brand as={Link} to={"/home"}>Gallerie Photos</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to={"/folder"}>Home</Nav.Link>
+                            <Nav.Link as={Link} to={"/folders"}>Folders</Nav.Link>
                             <Nav.Link as={Link} to={"/register"}>Register</Nav.Link>
                             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

@@ -9,8 +9,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/upload', photoUploader, async (req, res) => {
-
-    req.body.uploadedPhotoName = req.uploadedFileName;
+    req.body.uploadedPhotoName = req.uploadedPhotoName;
     let result = await photoDB.create(req.body)
     res.status(200).json(result);
 })

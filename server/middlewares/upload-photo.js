@@ -9,10 +9,11 @@ const getUniqueFileName = (file) => {
 const uploadStorage = multer.diskStorage({
     destination: './uploads',
     filename: (req, file, callback) => {
+        // console.log(req);
         if (file) {
             const fileName = getUniqueFileName(file);
 
-            req.uploadedFileName = fileName;
+            req.uploadedPhotoName = fileName;
             callback(null, fileName);
         } else {
             callback(new Error('Fichier inexistant'));
@@ -21,7 +22,7 @@ const uploadStorage = multer.diskStorage({
 });
 
 const fileTypeFilter = (req, file, callback) => {
-    if ((file.mimetype === 'image/jpeg')||(file.mimetype === 'image/png')) {
+    if ((file.mimetype === 'image/jpeg') || (file.mimetype === 'image/png')) {
         return callback(null, true);
     }
 

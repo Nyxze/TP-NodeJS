@@ -40,7 +40,7 @@ let syncDB = async () => {
 
 }
 
-syncDB();
+// syncDB();
 const ROLE_SAMPLE = [
   { name: "Admin" },
   { name: "Photographe" },
@@ -69,6 +69,8 @@ const FOLDER_SAMPLE = [
     userId:2
   }
 ]
+
+
 db.sequelize = sequelize;
 
 db.Sequelize = Sequelize;

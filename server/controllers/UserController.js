@@ -10,15 +10,19 @@ router.get('/', async (req, res) => {
     let result = await models.user.findAll({
         attributes: { exclude: ['roleId'] }
     });
-    console.log(result);
     res.status(200).json(result);
 })
 
 router.post('/new', async (req, res) => {
 
+    console.log(req.body)
+    if(req.body.firstName.length > 0 || req.body.lastName.length > 0){
+        let result = await models.user.create(req.body)
+        res.status(200).json(result);
 
-    let result = await models.user.create(req.body)
-    res.status(200).json(result);
+    }else{
+        res.status(500).json({ message:"Erors"})
+    }
 })
 
 router.put('/:id([0-9]+)', async (req, res) => {
