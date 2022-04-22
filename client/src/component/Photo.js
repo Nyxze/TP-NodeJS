@@ -1,16 +1,20 @@
 import React from 'react';
+import Image from 'react-bootstrap/Image'
 
 function Photo({ photo }) {
 
 
-
+    const URL = "http://localhost:3000/images/";
     return (
+        <Image
+            src={URL + photo.uploadedPhotoName}
+            rounded
+            fluid
+            className="col-2"
+        />
 
 
-        <div>
-            <img src="/uploads/1650553107553test-photo.jpg"></img>
-         {console.log(photo.id)}
-        </div>
+
     )
 }
 

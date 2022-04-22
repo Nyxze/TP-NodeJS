@@ -8,7 +8,7 @@ export default function Upload({ handleFileChange, name }) {
 
 
     return (
-        <div className="uploadComponent">
+        <div className={"upload_"+name}>
 
 
             <Form.Group className="mb-3">

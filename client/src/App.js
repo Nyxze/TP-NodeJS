@@ -1,22 +1,20 @@
 import './App.css';
-import axios from 'axios';
 import Home from './routes/Home'
 import Register from './routes/Register';
-import Folders from './routes/Folders'
-import Gallery from './routes/Gallery'
+import FoldersList from './routes/Folders'
 import PhotoUpload from './routes/Photo/Upload'
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
-    <div className="App row justify-content-center">
+    <div className="App container-fluid">
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/folders" element={<Folders />} />
-        <Route path="photo" element={<Gallery />}>
-        </Route>
+        <Route path="/register" element={<Register />}/>
+
+
+        <Route path="/folders" element={<FoldersList />} />
         <Route path="/photo/upload" element={<PhotoUpload />} />
 
 

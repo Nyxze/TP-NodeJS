@@ -1,15 +1,13 @@
 import React from 'react';
 
-function Folder({ folder }) {
+function Folder({ onClick,folder }) {
+
 
 
 
     return (
-
-
-        <div>
-           <pre>{JSON.stringify(folder,null,2)}</pre>
-
+        <div id={"folder_id"+folder.id}>
+             <button onClick={onClick} id={folder.id}>{folder.folderName}</button>
         </div>
     )
 }

@@ -1,34 +1,20 @@
-import React, { useState, useEffect } from 'react';
 import Photo from '../component/Photo';
-import axios from 'axios';
 
-export default function Folders() {
-
-    const URL_API = "http://localhost:3000/photo/";
-    const [photosData, setPhotosData] = useState([])
-
-    const getFoldersData = async () => {
-        const { data } = await axios.get(URL_API);
-        setPhotosData(data);
-        console.log(data)
-    };
-    useEffect(() => {
-        getFoldersData();
-    }, [])
+export default function Gallery({ photos }) {
 
 
-    const createPhotoList = () =>{
-        return photosData.map((photo)=>{
+    const createPhotoList = () => {
+
+        return photos.map((photo) => {
             return (
-                <Photo photo={photo}  key={photo.id}/>
+                <Photo key={photo.id} photo={photo}></Photo>
             )
         })
-        
+
     }
 
     return (
-        <div>
-            <pre>{JSON.stringify(photosData,null,2)}</pre>
+        <div className="row">
             {createPhotoList()}
         </div>
     )

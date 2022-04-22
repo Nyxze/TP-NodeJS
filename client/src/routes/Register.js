@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import {useForm} from 'react-hook-form'
 import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
@@ -47,7 +48,7 @@ export default function Register() {
 
 
     return (
-        <div className="col-md-6">
+        <div className="justify-content-center">
             <Form onSubmit={handleSubmit} className="">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>First Name</Form.Label>

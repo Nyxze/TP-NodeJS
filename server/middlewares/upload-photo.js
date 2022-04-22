@@ -7,7 +7,7 @@ const getUniqueFileName = (file) => {
 }
 
 const uploadStorage = multer.diskStorage({
-    destination: './uploads',
+    destination: './public/images',
     filename: (req, file, callback) => {
         // console.log(req);
         if (file) {

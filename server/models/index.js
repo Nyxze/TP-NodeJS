@@ -40,7 +40,7 @@ let syncDB = async () => {
 
 }
 
-// syncDB();
+syncDB();
 const ROLE_SAMPLE = [
   { name: "Admin" },
   { name: "Photographe" },
@@ -57,16 +57,16 @@ const FOLDER_SAMPLE = [
 
   {
     folderName: "Public",
-    userId:2
+    userId: 2
   },
   {
     folderName: "Private",
-    userId:1
+    userId: 1
   },
   {
     folderName: "Downloads",
-    parentId:2,
-    userId:2
+    parentId: 2,
+    userId: 2
   }
 ]
 

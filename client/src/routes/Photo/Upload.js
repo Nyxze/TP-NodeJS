@@ -4,27 +4,32 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
-export default function PhotoUpload() {
+export default function PhotoUpload({ folderId, setSubmitted }) {
 
     const [formInputData, setFormInputData] = useState({
-        photoName:"",
-        legend:"",
+        photoName: "",
+        legend: "",
 
     })
     const [file, setFile] = useState(null);
 
 
     const handleSubmit = async (e) => {
-        const data = new FormData()
-        data.append("photo",file);
-        data.append("photoName",formInputData.photoName);
-        data.append("legend",formInputData.legend);
-        console.log(...data)
         e.preventDefault();
-
+        const data = new FormData()
+        data.append("photo", file);
+        data.append("photoName", formInputData.photoName);
+        data.append("legend", formInputData.legend);
+        data.append("folderId", folderId);
         try {
-  
-            let res = await axios.post("http://localhost:3000/photo/upload",data)
+
+            let res = await axios.post("http://localhost:3000/photo/upload", data)
+            setFormInputData(
+                {
+                    photoName: "",
+                    legend: "",
+                })
+            setSubmitted(true);
 
         } catch (err) {
             console.log(err)
@@ -48,9 +53,9 @@ export default function PhotoUpload() {
 
 
     return (
-        <div className="uploadComponent">
+        <div className="uploadComponent justify-content-center">
 
-            <Form  onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <Form.Label>Photo Name</Form.Label>
                 <Form.Control name="photoName" value={formInputData.photoName}
                     onChange={handleInputChange}
@@ -60,12 +65,6 @@ export default function PhotoUpload() {
                     onChange={handleInputChange}
                     type="text" placeholder="Describe your photo" />
                 <Form.Label>Select a folder</Form.Label>
-                <Form.Select aria-label="Default select example">
-                    <option>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </Form.Select>
 
                 <Upload name="photo" handleFileChange={handleFileChange} />
                 <Button variant="primary" type="submit">

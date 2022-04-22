@@ -9,9 +9,14 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/upload', photoUploader, async (req, res) => {
-    req.body.uploadedPhotoName = req.uploadedPhotoName;
-    let result = await photoDB.create(req.body)
-    res.status(200).json(result);
+    try {
+        req.body.uploadedPhotoName = req.uploadedPhotoName;
+        let result = await photoDB.create(req.body)
+        res.status(200).json(result);
+    } catch (err) {
+        console.log(err)
+    }
+
 })
 
 router.put('/:id([0-9]+)', async (req, res) => {
